@@ -40,7 +40,7 @@ export default function NavBar() {
             }
         },
         {label: <FormattedMessage id={'settings'}/>, className: 'xl:mr-6 text-xl', icon: 'pi pi-fw pi-cog', command: (event) => {
-                router.replace("./Favorite");
+                router.replace("./favorite");
             }}
     ];
     const [dirState, setDirState] = useRecoilState(myDirectionState);

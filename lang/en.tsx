@@ -1,6 +1,6 @@
 export default {
-    heading: "The Best Offers Of Beauty Centers In Syria",
-    heading_sub: "The Best Offers Of Beauty Centers In Syria",
+    heading: "There is still time to save big this season",
+    heading_sub: "The Best Offers Of Beauty Clinic Centers In Syria",
     begin_button:"Click ...",
     offers:"Offers",
     clinic:"Clinic",

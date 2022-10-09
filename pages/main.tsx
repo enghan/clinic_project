@@ -6,6 +6,6 @@ export default function Main(){
     return(
 
         <div>
-            <Clinics />
+
         </div>
     )}

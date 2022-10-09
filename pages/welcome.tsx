@@ -1,4 +1,4 @@
-import { TabView, TabPanel } from 'primereact/tabview';
+
 import {Button} from 'primereact/button';
 import Link from "next/link";
 import {useRouter} from "next/router";
@@ -14,7 +14,7 @@ export default function Welcome(){
     const divRef = React.useRef<NavBar>(null);
     function setDirection() {
         debugger
-        setDirState({...dirState, dir: (locale  === "ar"?"rtl":"ltr")})
+        setDirState(locale  === "ar"?"rtl":"ltr")
 
     }
     return(
@@ -23,8 +23,8 @@ export default function Welcome(){
             <div ref={divRef} style={{ display: "none" }} />;
             <div className="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
                 <section>
-                    <span className="block text-6xl font-bold mb-1">Create the screens your</span>
-                    <div className="text-6xl text-primary font-bold mb-3">your visitors deserve to see</div>
+                    <span className="block text-5xl font-bold mb-1">There is still time to save big this season</span>
+                    <div className="text-6xl text-primary font-bold mb-3">This Is Your Last Chance to Save</div>
                     <p className="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <Link href="./Main" locale={'en'}>
                         <Button type="button" onClick={setDirection} className="p-button-outlined w-3 m-2" label="English" />

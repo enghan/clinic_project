@@ -31,7 +31,7 @@ export default function Offers() {
         dialogFuncMap[`${name}`](false);
     }
     return (
-        <div className="grid m-8" dir={dirState.dir}>
+        <div className="grid m-8" dir={dirState}>
         {offers.map(offer => (
             <div className="col-10 md:col-8 lg:col-4   ">
                 <Card  className={"shadow-2 p-3 h-full flex flex-column surface-card"}
