@@ -34,16 +34,13 @@ export default function Offers() {
         <div className="grid m-8" dir={dirState.dir}>
         {offers.map(offer => (
             <div className="col-10 md:col-8 lg:col-4   ">
-                <Card className={"shadow-2 p-3 h-full flex flex-column surface-card"}
+                <Card  className={"shadow-2 p-3 h-full flex flex-column surface-card"}
                       header={
-                          <div className={"flex flex-row justify-content-between mb-5 align-items-center"}>
-                              <span className={" text-900 text-xl font-medium"}>{offer.category}</span>
-                              <Tag className={"p-tag-rounded bg-red-300 text-red-600  xl:w-2 text-lg "}
-                                   value={offer.rating.rate} icon="pi pi-dollar"></Tag>
-                          </div>}
+                          <img alt="Card" src='https://www.primefaces.org/primereact/images/usercard.png'/>
+                         }
                       footer={
                           <div>
-                              <Button className={"p-button p-component border-round-md  lg:w-full font-medium  m-2"}
+                              <Button className={"p-button p-component border-round-md  w-full font-medium  m-2"}
                                       label={<FormattedMessage id={'detail'}/>}
                                       onClick={() => onClick('displayResponsive')}>
                                   <i className="pi pi-external-link mr-2"></i>
@@ -52,6 +49,11 @@ export default function Offers() {
                               <span className={"text-sm line-height-3 mb-0 mt-5"}>{offer.description}</span></div>
                       }
                 >
+                    <div className={"flex flex-row justify-content-between mb-5 align-items-center"}>
+                        <span className={" text-900 text-xl font-medium"}>{offer.category}</span>
+                        <Tag className={"p-tag-rounded bg-red-300 text-red-600  xl:w-2 text-lg "}
+                             value={offer.rating.rate} icon="pi pi-dollar"></Tag>
+                    </div>
                     <div className={"flex align-items-center mb-5"}>
                         <span className={"text-900 font-bold text-5xl"}>{offer.price}</span>
                         <span className={"font-medium text-500 ml-2"}>{<FormattedMessage id={'S_P'}/>}</span>

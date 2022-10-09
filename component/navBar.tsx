@@ -4,8 +4,6 @@ import {Image} from 'primereact/image';
 import {InputText} from 'primereact/inputtext';
 import 'primeicons/primeicons.css';
 import {Menubar} from 'primereact/menubar';
-import Main from "../pages/main";
-import Clinics from "../pages/clinics";
 import {useRouter} from "next/router";
 import {useRecoilState} from "recoil";
 import {myDirectionState} from "./Atoms/directionAtoms";

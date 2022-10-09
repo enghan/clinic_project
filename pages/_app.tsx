@@ -12,8 +12,7 @@ import en from "../lang/en";
 import theme from "../styles/theme";
 import {ChakraProvider} from "@chakra-ui/provider";
 import NavBar from "../component/navBar";
-import {useRecoilState} from "recoil";
-import {myDirectionState} from "../component/Atoms/directionAtoms";
+import {RecoilRoot, useRecoilState} from "recoil";
 
 const messages = {
   ar,
@@ -24,18 +23,8 @@ const messages = {
 
 function MyApp({Component, pageProps}:{Component:any,pageProps:any}) {
   const {locale} = useRouter();
-  const [dirState, setDirState] = useRecoilState(myDirectionState);
-
-  function getDirection({locale}:{locale:string}) {
-    // if (locale === "ar") {
-    //   return "rtl";
-    // }
-    //
-    // return "ltr";
-    setDirState({...dirState, dir: locale  === "ar"?"rtl":"ltr"})
-  }
   return (
-
+      <RecoilRoot>
         < ChakraProvider
             theme={theme}>
           <IntlProvider locale={locale} messages={messages[locale]}>
@@ -48,11 +37,12 @@ function MyApp({Component, pageProps}:{Component:any,pageProps:any}) {
               <meta name="theme-color" content="#000000" />
             </Head>
             <NavBar />
-            <Component {...pageProps} dir={getDirection(locale)} />
+            <Component {...pageProps}  />
           </IntlProvider>
 
 
         </ChakraProvider>
+        </RecoilRoot>
   );
 }
 
