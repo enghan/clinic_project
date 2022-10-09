@@ -1,5 +1,6 @@
 import {Button} from 'primereact/button';
 import NavBar from "../component/navBar";
 
-export default function Offers({dir}){
-    return  (<NavBar dir={dir}/>)}
+export default function Favorite({dir}:{dir:string}){
+    return (<div></div> )
+}

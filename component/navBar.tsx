@@ -4,52 +4,68 @@ import {Image} from 'primereact/image';
 import {InputText} from 'primereact/inputtext';
 import 'primeicons/primeicons.css';
 import {Menubar} from 'primereact/menubar';
-import Main from "../pages/Main";
-import Clinics from "../pages/Clinics";
+import Main from "../pages/main";
+import Clinics from "../pages/clinics";
+import {useRouter} from "next/router";
+import {useRecoilState} from "recoil";
+import {myDirectionState} from "./Atoms/directionAtoms";
 
 
-const items = [
-    {label: <FormattedMessage id={'offers'}/>, className: 'mr-4', icon: 'pi pi-fw pi-gift ', url: './Offers'},
-    {
-        label: <FormattedMessage id={'clinics'}/>,
-        className: 'mr-4',
-        icon: 'pi pi-fw pi-flag-fill',
-        command: (event) => {
-            return <Main dir={"dir"} child={<Clinics dir={"rtl"}/>}/>;
-        }
-    },
-    {
-        label: <FormattedMessage id={'favorite'}/>,
-        className: 'mr-4',
-        icon: 'pi pi-fw pi-heart-fill',
-        url: './Favorite'
-    },
-    {label: <FormattedMessage id={'settings'}/>, className: 'mr-4', icon: 'pi pi-fw pi-cog', url: ''}
-];
 
-export default function NavBar({dir}: { dir: string }) {
+
+export default function NavBar() {
     const [value, setValue] = useState('');
-
-
+    const router=useRouter();
+    const items = [
+        {
+            label: <FormattedMessage id={'offers'}/>,
+            className: 'xl:mr-6 text-xl',
+            icon: 'pi pi-fw pi-gift ',
+            command: (event) => {
+                router.replace("./offers");
+            }
+        },
+        {
+            label: <FormattedMessage id={'clinics'}/>,
+            className: 'xl:mr-6 text-xl',
+            icon: 'pi pi-fw pi-flag-fill',
+            command: (event) => {
+                router.replace("./clinics");
+            }
+        },
+        {
+            label: <FormattedMessage id={'favorite'}/>,
+            className: 'xl:mr-6 text-xl',
+            icon: 'pi pi-fw pi-heart-fill',
+            command: (event) => {
+                router.replace("./favorite");
+            }
+        },
+        {label: <FormattedMessage id={'settings'}/>, className: 'xl:mr-6 text-xl', icon: 'pi pi-fw pi-cog', command: (event) => {
+                router.replace("./Favorite");
+            }}
+    ];
+    const [dirState, setDirState] = useRecoilState(myDirectionState);
     return (
 
-        <div className="card shadow-2" dir={dir}>
+        <div className="card shadow-2" dir={dirState.dir}>
             <Menubar
-                className={"p-2 p-menubar"}
+                className={"p-2"}
                 model={items}
-                start={<div className="  p-3 ">
+                start={<div className="  p-2 ">
                     <Image src="https://www.primefaces.org/primeblocks-react/assets/images/blocks/logos/bastion-700.svg"
                            alt="Image Text"/>
                 </div>}
-                end={<div className="  p-3 ">
-                    {dir === "ltr" ? <span className="p-float-label p-input-icon-left">
+                end={<div className=" p-2 ">
+                    {dirState.dir === "ltr" ? <span className="p-float-label p-input-icon-left">
                          <i className="pi pi-search"/>
-                           <InputText className={'border-round-xl  w-20 '} id="search" value={value}
+                           <InputText className={'border-round-xl '} id="search" value={value}
                                       onChange={(e) => setValue(e.target.value)}/>
                               <label htmlFor="search">{<FormattedMessage id={'search'}/>}</label>
                              </span>
-                        : <span className="p-float-label p-input-icon-right right-100"> <i className="pi pi-search"/>
-                           <InputText className={'border-round-xl  w-20 '} id="search" value={value}
+                        : <span className="p-float-label p-input-icon-right xl:right-100 sm:right-50"> <i
+                            className="pi pi-search"/>
+                           <InputText className={'border-round-xl  '} id="search" value={value}
                                       onChange={(e) => setValue(e.target.value)}/>
                               <label htmlFor="search">{<FormattedMessage id={'search'}/>}</label>
                              </span>}

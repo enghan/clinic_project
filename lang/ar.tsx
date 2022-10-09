@@ -16,7 +16,10 @@ export default {
     active:"فعال",
     settings:"الإعدادات",
     search:"بحث",
-    menu:"القائمة"
+    menu:"القائمة",
+    dislike:"لم يعجبني",
+    like:"أعجبني",
+    Love:"أحببته",
 
 
 }

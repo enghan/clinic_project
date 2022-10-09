@@ -16,7 +16,10 @@ export default {
     active:"Active",
     settings:"Settings",
     search:"search",
-    menu:"Menu"
+    menu:"Menu",
+    dislike:"Dislike",
+    like:"like",
+    Love:"Love this",
 
 
 }
