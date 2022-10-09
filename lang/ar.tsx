@@ -14,6 +14,9 @@ export default {
     review:"الآراء",
     _clinic:"العيادة",
     active:"فعال",
+    settings:"الإعدادات",
+    search:"بحث",
+    menu:"القائمة"
 
 
 }

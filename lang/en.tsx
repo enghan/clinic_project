@@ -14,6 +14,9 @@ export default {
     review:"reviews",
     _clinic:"Clinic",
     active:"Active",
+    settings:"Settings",
+    search:"search",
+    menu:"Menu"
 
 
 }
