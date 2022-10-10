@@ -9,7 +9,7 @@ import {Accordion, AccordionTab} from "primereact/accordion";
 import TextIcon from "../component/taextIcon";
 import {Divider} from "primereact/divider";
 import {useRecoilState} from "recoil";
-import {myDirectionState} from "../component/Atoms/directionAtoms";
+import {myDirectionState} from "../Atoms/directionAtoms";
 
 export default function Offers() {
     const [displayResponsive, setDisplayResponsive] = useState(false);
@@ -52,7 +52,7 @@ export default function Offers() {
                     <div className={"flex flex-row justify-content-between mb-5 align-items-center"}>
                         <span className={" text-900 text-xl font-medium"}>{offer.category}</span>
                         <Tag className={"p-tag-rounded bg-red-300 text-red-600  xl:w-2 text-lg "}
-                             value={offer.rating.rate} icon="pi pi-dollar"></Tag>
+                             value={offer.rating.rate} icon="pi pi-percentage"></Tag>
                     </div>
                     <div className={"flex align-items-center mb-5"}>
                         <span className={"text-900 font-bold text-5xl"}>{offer.price}</span>
@@ -63,7 +63,7 @@ export default function Offers() {
 
 
         ))}
-        <Dialog header={<FormattedMessage id={'detail'}/>} visible={displayResponsive} style={{width: '50vw'}}
+        <Dialog  header={<FormattedMessage id={'detail'}/>} visible={displayResponsive} style={{width: '50vw'}}
                 onHide={() => onHide('displayResponsive')}>
             <div className={"flex flex-column shadow-2 h-full border-round-lg overflow-hidden"}>
                 <div className={"bg-primary p-5"}>
@@ -78,8 +78,8 @@ export default function Offers() {
 
                     </div>
                 </div>
-                <div className={"flex-1 border-round-lg border-noround-top surface-card p-5 flex flex-column"}>
-                    <Accordion activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
+                <div dir={dirState} className={"flex-1 border-round-lg border-noround-top surface-card p-5 flex flex-column"}>
+                    <Accordion dir={dirState} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.index)}>
                         <AccordionTab header={<FormattedMessage id={'_clinic'}/>}>
                             <TextIcon text={"sparkel"} icon={"pi pi-circle-fill m-3 "}/>
                             <TextIcon text={"address"} icon={"pi pi-map-marker m-3"}/>
@@ -96,7 +96,7 @@ export default function Offers() {
 
 
                 </div>
-                <div className={"flex justify-content-center align-items-center  m-5 border-1 col-10 lg:col-6 "}>
+                <div dir={dirState} className={"flex justify-content-center align-items-center  m-5 border-1 col-10 lg:col-6 "}>
                     <Button className="p-button-raised p-button-rounded" tooltip={'Love'} icon="pi pi-heart"/>
                     <Divider layout="vertical xl:mr-6 "/>
                     <Button className="p-button-raised p-button-rounded" tooltip={'Like'} icon="pi pi-thumbs-up"/>

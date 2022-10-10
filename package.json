@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "axios": "^0.27.2",
     "framer-motion": "^7.5.0",
     "next": "12.3.1",
     "primeflex": "^3.2.1",
@@ -21,10 +22,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intl": "^6.1.2",
-    "recoil": "^0.7.5",
-    "axios": "^0.27.2"
+    "recoil": "^0.7.5"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.50.4",
     "@types/node": "18.8.2",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

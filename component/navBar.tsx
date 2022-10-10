@@ -6,7 +6,7 @@ import 'primeicons/primeicons.css';
 import {Menubar} from 'primereact/menubar';
 import {useRouter} from "next/router";
 import {useRecoilState} from "recoil";
-import {myDirectionState} from "./Atoms/directionAtoms";
+import {myDirectionState} from "../Atoms/directionAtoms";
 
 
 
@@ -46,7 +46,7 @@ export default function NavBar() {
     const [dirState, setDirState] = useRecoilState(myDirectionState);
     return (
 
-        <div className="card shadow-2" dir={dirState.dir}>
+        <div className="card shadow-2" dir={dirState}>
             <Menubar
                 className={"p-2"}
                 model={items}
@@ -55,7 +55,7 @@ export default function NavBar() {
                            alt="Image Text"/>
                 </div>}
                 end={<div className=" p-2 ">
-                    {dirState.dir === "ltr" ? <span className="p-float-label p-input-icon-left">
+                    {dirState === "ltr" ? <span className="p-float-label p-input-icon-left">
                          <i className="pi pi-search"/>
                            <InputText className={'border-round-xl '} id="search" value={value}
                                       onChange={(e) => setValue(e.target.value)}/>

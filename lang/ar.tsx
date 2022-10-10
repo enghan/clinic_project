@@ -3,7 +3,7 @@ export default {
     heading_sub: " أقوى عروض مراكز وعيادات التجميل في سوريا",
     begin_button :" ... ابدأ",
     offers:"العروض",
-    clinic:"العيادات",
+    clinics:"العيادات",
     favorite:"المفضلة",
     learn_more:"معرفة المزيد",
     detail:"التفاصيل",

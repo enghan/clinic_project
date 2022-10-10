@@ -3,7 +3,7 @@ export default {
     heading_sub: "The Best Offers Of Beauty Clinic Centers In Syria",
     begin_button:"Click ...",
     offers:"Offers",
-    clinic:"Clinic",
+    clinics:"Clinics",
     favorite:"Favorite",
     learn_more:"Learn More",
     detail:"Details",
