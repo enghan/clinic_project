@@ -6,16 +6,20 @@ import {Tag} from "primereact/tag";
 import {FormattedMessage} from "react-intl";
 import {Dialog} from "primereact/dialog";
 import {Accordion, AccordionTab} from "primereact/accordion";
-import TextIcon from "../component/taextIcon";
+import {TextIcon} from "../component/taextIcon";
 import {Divider} from "primereact/divider";
 import {useRecoilState} from "recoil";
 import {myDirectionState} from "../Atoms/directionAtoms";
+import { Dropdown } from 'primereact/Dropdown';
+import Filter from "../component/filter";
 
 export default function Offers() {
     const [displayResponsive, setDisplayResponsive] = useState(false);
     const [position, setPosition] = useState('center');
     const [activeIndex, setActiveIndex] = useState(null);
     const [dirState, setDirState] = useRecoilState(myDirectionState);
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [Cities, setCities] = useState(null);
     const dialogFuncMap = {
         'displayResponsive': setDisplayResponsive
     }
@@ -30,9 +34,30 @@ export default function Offers() {
     const onHide = (name) => {
         dialogFuncMap[`${name}`](false);
     }
+    const citySelectItems = [
+        {label: 'New York', value: 'NY'},
+        {label: 'Rome', value: 'RM'},
+        {label: 'London', value: 'LDN'},
+        {label: 'Istanbul', value: 'IST'},
+        {label: 'Paris', value: 'PRS'}
+    ];
+    const cities = [
+        {name: 'New York', code: 'NY'},
+        {name: 'Rome', code: 'RM'},
+        {name: 'London', code: 'LDN'},
+        {name: 'Istanbul', code: 'IST'},
+        {name: 'Paris', code: 'PRS'}
+    ];
     return (
-        <div className="grid m-8" dir={dirState}>
-        {offers.map(offer => (
+         <div>
+             <div className={"col-10 md:col-8 lg:col-4 "} >
+                 <h5 className={"text-3xl"}>price</h5>
+                 <Dropdown className={"w-20rem"}  value={Cities} options={citySelectItems} onChange={(e) => setCities(e.value)} />
+              <Filter optionsselect={citySelectItems} />
+             </div>
+              <div className="grid m-8" dir={dirState}>
+
+            {offers.map(offer => (
             <div className="col-10 md:col-8 lg:col-4   ">
                 <Card  className={"shadow-2 p-3 h-full flex flex-column surface-card"}
                       header={
@@ -106,6 +131,7 @@ export default function Offers() {
                 </div>
             </div>
         </Dialog>
+        </div>
     </div>);
 
 

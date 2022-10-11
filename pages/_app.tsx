@@ -13,6 +13,7 @@ import theme from "../styles/theme";
 import {ChakraProvider} from "@chakra-ui/provider";
 import NavBar from "../component/navBar";
 import {RecoilRoot, useRecoilState} from "recoil";
+import Footer from "../component/footer";
 
 const messages = {
   ar,
@@ -38,6 +39,7 @@ function MyApp({Component, pageProps}:{Component:any,pageProps:any}) {
             </Head>
             <NavBar />
             <Component {...pageProps}  />
+            <Footer/>
           </IntlProvider>
 
 
